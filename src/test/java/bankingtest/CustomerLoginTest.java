@@ -8,12 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CustomerLoginTest extends BaseTest {
 
     @Test
-    public void testCase1(){
+    public void depositTest(){
+        String user = "Hermoine Granger";
+        String amountToDeposit = "500"; // in dollars
         app.loginPage.clickCustomerLogin();
-        String option = "Hermoine Granger";
-        app.validationPage.selectFromDropDown(option);
+        app.validationPage.selectFromDropDown(user);
         app.validationPage.clickLoginButton();
-        app.accountPage.deposit("500");
+        app.accountPage.deposit(amountToDeposit);
         assertTrue(app.accountPage.getConfirmation().isDisplayed());
     }
 }
